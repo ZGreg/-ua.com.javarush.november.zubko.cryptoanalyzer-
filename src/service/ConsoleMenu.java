@@ -51,13 +51,13 @@ public class ConsoleMenu {
                     System.out.println("See you!");
                     break;
                 case 1:
-                    (new Decoder()).decode();
+                    new Decoder().decode();
                     break;
                 case 2:
-                    (new Encoder()).encode();
+                    new Encoder().encode();
                     break;
                 case 3:
-                    (new SimpleBruteForce()).findKey();
+                    new SimpleBruteForce().findKey();
                     break;
                 default:
                     System.out.println("Unknown command. Please try again");
