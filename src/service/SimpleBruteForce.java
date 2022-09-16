@@ -9,13 +9,16 @@ import static constants.Alphabet.ALPHABET;
 import static constants.Alphabet.ALPHABET_SIZE;
 import static constants.Messages.FILE_NOT_FOUND;
 import static constants.Messages.IO_EXCEPTION;
-
+/**
+ * Simple search all possibles keys. User must look through all variants himself.
+ * Perfectly works with any message size.
+ * */
 public class SimpleBruteForce {
     public void findKey() {
 
         try (BufferedReader bf = new BufferedReader(new BufferedReader(new FileReader(new UserDataInput().getInput())))) {
             StringBuilder sb = new StringBuilder("");
-            String line = bf.readLine();          // take first line for encoding
+            String line = bf.readLine();                            // take first line for encoding
             for (int key = 1; key < ALPHABET_SIZE; key++) {
                 for (int i = 0; i < line.length(); i++) {
                     if (Character.isUpperCase(line.charAt(i))) {

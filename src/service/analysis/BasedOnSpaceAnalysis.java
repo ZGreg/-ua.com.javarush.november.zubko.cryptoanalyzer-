@@ -18,13 +18,13 @@ import static constants.Alphabet.ALPHABET_SIZE;
  * */
 public class AnalysisTheMessage {    // change name of method
 
-    private final Map<Character, Integer> LETTERS = getLettersRate();
+    private  Map<Character, Integer> letters = getLettersRate();
 
     public void getKeyBySpace(){
-        int maxValue = Collections.max(LETTERS.values());
+        int maxValue = Collections.max(letters.values());
         char encodedSpace = 0;
         for (Map.Entry<Character,Integer> entry:
-                LETTERS.entrySet()) {
+                letters.entrySet()) {
             if(entry.getValue() == maxValue){
                 encodedSpace = entry.getKey();
             }
@@ -45,16 +45,19 @@ public class AnalysisTheMessage {    // change name of method
             while (bf.ready()) {
 
                 char letter = (char) bf.read();
-
+                //add char as a key, integer represents amount of key char
+                //don't count digit and space symbols
                 if (!storage.containsKey(letter) && letter != '\r' && letter != '\n') {
                     storage.put(letter, 1);
                 } else if(storage.containsKey(letter)){
                     storage.replace(letter, storage.get(letter) + 1);
                 }
-                if (letter != '\r' && letter != '\n') {
+                if (Character.isAlphabetic(letter)) {
                     amountOfLetters++;
                 }
             }
+            System.out.println(amountOfLetters + "<----");
+            System.out.println(storage);
         }catch (FileNotFoundException e){
             System.out.println(FILE_NOT_FOUND);
         }catch (IOException e ){

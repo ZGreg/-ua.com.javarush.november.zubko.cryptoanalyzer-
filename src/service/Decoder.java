@@ -9,12 +9,12 @@ import static constants.Messages.IO_EXCEPTION;
 
 public class Decoder {
     public void decode() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(new UserDataInput().getInput()));
+        try (BufferedReader br = new BufferedReader(new FileReader(new UserDataInput().getInput()));
              BufferedWriter bw = new BufferedWriter(new FileWriter(new UserDataInput().getOutput()))) {
             int key = new UserDataInput().getKey();
 
-            while (bf.ready()) {
-                char fileChar = (char) bf.read();
+            while (br.ready()) {
+                char fileChar = (char) br.read();
 
                 if (Character.isUpperCase(fileChar)) {
                     int charIndexFromAlph = ALPHABET.indexOf(Character.toLowerCase(fileChar));

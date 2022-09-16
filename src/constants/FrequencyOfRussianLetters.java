@@ -1,21 +1,16 @@
 package constants;
 
-import java.util.HashMap;
-import java.util.Map;
 
-//double shows % of all letters in text
+
+
+import java.util.Arrays;
+import java.util.List;
 
 public class FrequencyOfRussianLetters {
-    public static final Map<Character,Double> LETTERS_FREQUENCY = new HashMap<>(){{
-        put('о', 10.98);
-        put('е', 8.5);
-        put('а', 8.0);
-        put('и', 7.4);
-        put('н', 6.7);
-        put('т', 6.3);
-        put('с', 5.4);
-        put('р',4.7);
-        put('в', 4.5);
-        put('л', 4.3);
-    }};
+    /**
+     * List represents the frequency of letters in text. First in the list is the most common and so on.
+     * */
+    public static final List<Character> LETTERS_FREQUENCY = Arrays.asList('о', 'е', 'а', 'и', 'н', 'т', 'с', 'р', 'в',
+            'л', 'к', 'м', 'д', 'п', 'у', 'я', 'ы', 'ь', 'г', 'з', 'б', 'ч', 'й', 'х', 'ж', 'ш', 'ю', 'ц', 'щ', 'э', 'ф', 'ъ', 'ё');
+
 }

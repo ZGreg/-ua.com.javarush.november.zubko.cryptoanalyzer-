@@ -1,6 +1,8 @@
 package service;
 
 import errors.InvalidChoice;
+import service.analysis.BasedOnLettersAnalysis;
+import service.analysis.BasedOnSpaceAnalysis;
 
 import java.util.Scanner;
 
@@ -20,7 +22,7 @@ public class ConsoleMenu {
         System.out.println("1 <- Decode message using Cesar method.");
         System.out.println("2 <- Encode message using Cesar method.");
         System.out.println("3 <- Find the key by brute force method");
-        System.out.println("4 <- Find the key by the method of text analysis");
+        System.out.println("4 <- Find the key by the method of letter frequency analysis");
         System.out.println("0 <- Exit application.");
     }
 
@@ -61,7 +63,7 @@ public class ConsoleMenu {
                 new SimpleBruteForce().findKey();
                 break;
             case 4:
-                new AnalysisTheMessage().getKeyBySpace();
+                new BasedOnLettersAnalysis().runLetterAnalysis();
                 break;
             default:
                 System.out.println("Unknown command. Please try again");
