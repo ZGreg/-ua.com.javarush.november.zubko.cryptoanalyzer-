@@ -1,6 +1,6 @@
-import service.ConsoleMenu;
+package service;
 
-public class Start {
+public class Starter {
     public static void main(String[] args) {
         new ConsoleMenu().runApp();
     }

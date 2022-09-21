@@ -1,19 +1,21 @@
 package service;
 
-import errors.InvalidChoice;
-import service.analysis.BasedOnLettersAnalysis;
-import service.analysis.BasedOnSpaceAnalysis;
+import errors.InvalidChoiceException;
+import service.analysis.letter.analysis.BasedOnLettersAnalysis;
+import service.analysis.space.bar.BasedOnSpaceAnalysis;
+import service.bruteforce.Starter;
 
 import java.util.Scanner;
 
+
 public class ConsoleMenu {
     private boolean exit;
-
+    private Scanner keyboard = new Scanner(System.in);
     private void printGreeting() {
         System.out.println("+---------------------------------------+");
         System.out.println("|      Welcome to cryptoanalyzer!       |");
         System.out.println("|      Produced by Hryhorii Zubko       |");
-        System.out.println("|      ******* version 1.1 ******       |");
+        System.out.println("|      ******* version 1.2 ******       |");
         System.out.println("+---------------------------------------+\n");
     }
 
@@ -22,12 +24,12 @@ public class ConsoleMenu {
         System.out.println("1 <- Decode message using Cesar method.");
         System.out.println("2 <- Encode message using Cesar method.");
         System.out.println("3 <- Find the key by brute force method");
-        System.out.println("4 <- Find the key by the method of letter frequency analysis");
+        System.out.println("4 <- Find the key by finding space bar symbol");
         System.out.println("0 <- Exit application.");
     }
 
     private int getOption() {
-        Scanner keyboard = new Scanner(System.in);
+
         int option = -1;
 
         while (option < 0 || option > 4) {
@@ -35,11 +37,11 @@ public class ConsoleMenu {
                 System.out.println("\nSelect number :");
                 option = Integer.parseInt(keyboard.nextLine());
                 if (option < 0 || option > 4) {
-                    throw new InvalidChoice();
+                    throw new InvalidChoiceException();
                 }
-            } catch (NumberFormatException var4) {
+            } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Try again");
-            } catch (InvalidChoice var5) {
+            } catch (InvalidChoiceException e) {
                 System.out.println("You've chosen option -> " + option + ", which is not in the list!");
             }
         }
@@ -60,11 +62,13 @@ public class ConsoleMenu {
                 new Encoder().encode();
                 break;
             case 3:
-                new SimpleBruteForce().findKey();
+                new Starter().getUserChoice();
                 break;
             case 4:
-                new BasedOnLettersAnalysis().runLetterAnalysis();
+                new BasedOnSpaceAnalysis().getKeyBySpace();
                 break;
+            case 5:
+                new BasedOnLettersAnalysis().runLetterAnalysis();
             default:
                 System.out.println("Unknown command. Please try again");
         }
