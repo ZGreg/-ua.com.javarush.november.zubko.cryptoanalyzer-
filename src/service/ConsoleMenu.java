@@ -1,7 +1,6 @@
 package service;
 
 import errors.InvalidChoiceException;
-import service.analysis.letter.analysis.BasedOnLettersAnalysis;
 import service.analysis.space.bar.BasedOnSpaceAnalysis;
 import service.bruteforce.Starter;
 
