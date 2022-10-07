@@ -67,8 +67,6 @@ public class ConsoleMenu {
             case 4:
                 new BasedOnSpaceAnalysis().getKeyBySpace();
                 break;
-            case 5:
-                new BasedOnLettersAnalysis().runLetterAnalysis();
             default:
                 System.out.println("Unknown command. Please try again");
         }

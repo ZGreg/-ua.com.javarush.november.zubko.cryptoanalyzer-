@@ -3,14 +3,13 @@ package service;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
 import static constants.Alphabet.ALPHABET_SIZE;
 import static constants.Messages.NUMBER_FORMAT_EXCEPTION;
-import static constants.Messages.IO_EXCEPTION;
+
 
 
 public class UserDataInput {
