@@ -40,6 +40,9 @@ public class UserDataInput {
         System.out.println("\u2193 Type the path to a file for saving the result below \u2193");
         File file = new File(keyboard.nextLine());
         while (true) {
+            if(!file.exists()){
+                return file;
+            }
             if (file.length() != 0) {
                 System.out.println("The chosen file is not empty.\nPress <1>, if you want overwrite file, <2> for new path.");
                 try {
